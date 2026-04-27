@@ -1,0 +1,16 @@
+{
+    "colors": {
+        "primary": "#D84265",
+        "secondary": "#FFDEBA",
+        "accent": "#F08108",
+        "light": "#F2F2F2",
+        "dark": "#4F4F4F",
+        "info": "#8EC6E8",
+        "success": "#82D59E",
+        "warning": "#FFF284",
+        "danger": "#DE5462"
+    },
+    "typography": {
+        "fontFamily": "Montserrat"
+    }
+}
