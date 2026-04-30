@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-op-lighten: rgba(255, 255, 255, 0.05);
+    --color-op-darken: rgba(0, 0, 0, 0.05);
+    --color-primary: #d84265;
+    --color-secondary: #ffdeba;
+    --color-accent: #f08108;
+    --color-light: #f2f2f2;
+    --color-dark: #4f4f4f;
+    --color-info: #8ec6e8;
+    --color-success: #82d59e;
+    --color-warning: #fff284;
+    --color-danger: #de5462;
+    --color-gray-1: #333333;
+    --color-gray-2: #4f4f4f;
+    --color-gray-3: #828282;
+    --color-gray-4: #bdbdbd;
+    --color-gray-5: #e0e0e0;
+    --color-gray-6: #f2f2f2;
+}

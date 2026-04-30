@@ -8,7 +8,13 @@
         "info": "#8EC6E8",
         "success": "#82D59E",
         "warning": "#FFF284",
-        "danger": "#DE5462"
+        "danger": "#DE5462",
+        "gray-1": "#333333",
+        "gray-2": "#4F4F4F",
+        "gray-3": "#828282",
+        "gray-4": "#BDBDBD",
+        "gray-5": "#E0E0E0",
+        "gray-6": "#F2F2F2"
     },
     "typography": {
         "fontFamily": "Montserrat"
