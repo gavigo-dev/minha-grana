@@ -1,13 +1,37 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+import Components from 'unplugin-vue-components/vite'
+import { PrimeVueResolver } from '@primevue/auto-import-resolver'
+
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
     modules: ['@vite-pwa/nuxt'],
     app: {
         head: {
-            link: [{ rel: 'manifest', href: '/manifest.webmanifest' }]
+            charset: 'utf-8',
+            viewport: 'width=device-width, initial-scale=1',
+            title: 'Minha Grana',
+            link: [
+                {
+                    rel: 'stylesheet',
+                    href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'
+                },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,100,1,200&icon_names=home,docs,bar_chart_4_bars&display=block'
+                },
+                {
+                    rel: 'manifest',
+                    href: '/manifest.webmanifest'
+                }
+            ]
         }
     },
+    css: [
+        '~/assets/css/main.scss',
+        '~/assets/css/tailwind.css',
+        '~/assets/css/primeicons.css'
+    ],
     pwa: {
         registerType: 'autoUpdate',
 
@@ -21,5 +45,13 @@ export default defineNuxtConfig({
         devOptions: {
             enabled: true // allows testing PWA in dev
         }
+    },
+    vite: {
+        plugins: [
+            tailwindcss(),
+            Components({
+                resolvers: [PrimeVueResolver()]
+            })
+        ]
     }
 })

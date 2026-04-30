@@ -1,6 +1,6 @@
 {
     "name": "Minha Grana",
-    "short_name": "Grana",
+    "short_name": "Minha Grana",
     "description": "Controle financeiro simples e rápido",
     "start_url": "/",
     "scope": "/",
