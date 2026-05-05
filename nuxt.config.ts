@@ -5,7 +5,12 @@ import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@vite-pwa/nuxt'],
+    modules: [
+        '@vite-pwa/nuxt',
+        '@primevue/nuxt-module',
+        '@pinia/nuxt',
+        'pinia-plugin-persistedstate/nuxt'
+    ],
     app: {
         head: {
             charset: 'utf-8',
@@ -29,8 +34,8 @@ export default defineNuxtConfig({
     },
     css: [
         '~/assets/css/main.scss',
-        '~/assets/css/tailwind.css',
-        '~/assets/css/primeicons.css'
+        '~/assets/css/primeicons.css',
+        '~/assets/css/tailwind.css'
     ],
     pwa: {
         registerType: 'autoUpdate',
@@ -46,12 +51,24 @@ export default defineNuxtConfig({
             enabled: true // allows testing PWA in dev
         }
     },
+    primevue: {
+        usePrimeVue: false
+    },
+    pinia: {
+        storesDirs: ['./app/stores/**']
+    },
     vite: {
         plugins: [
             tailwindcss(),
             Components({
                 resolvers: [PrimeVueResolver()]
             })
-        ]
+        ],
+        optimizeDeps: {
+            include: [
+                'pinia-plugin-persistedstate',
+                'moment/min/moment-with-locales'
+            ]
+        }
     }
 })

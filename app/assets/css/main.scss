@@ -2,5 +2,32 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #333333;
+    color: var(--color-gray-1);
+}
+
+.color-set-1 {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+.color-set-1-reverse {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+}
+
+.color-set-2 {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+}
+.color-set-2-reverse {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+}
+
+.color-set-3 {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+}
+.color-set-3-reverse {
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
 }
