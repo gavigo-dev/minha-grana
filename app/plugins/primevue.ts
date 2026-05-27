@@ -1,6 +1,5 @@
 import PrimeVue, { type PrimeVueConfiguration } from 'primevue/config'
 import Locale from 'primelocale/pt-BR.json'
-import { root } from 'postcss'
 
 const ButtonPT = {
     root: ({ props, context }: { props: any; context: any }) => {
@@ -159,6 +158,15 @@ export default defineNuxtPlugin((nuxtApp) => {
                 header: 'flex items-center justify-between',
                 pcCloseButton: {
                     root: 'bg-transparent focus-visible:outline-none cursor-pointer hover:text-primary'
+                }
+            },
+            avatar: {
+                root: 'border-2 border-primary rounded-full aspect-square w-10 flex items-center justify-center'
+            },
+            overlayBadge: {
+                root: 'relative',
+                pcBadge: {
+                    root: 'bg-primary rounded-full h-3 w-3 absolute top-0 -right-1'
                 }
             }
         },

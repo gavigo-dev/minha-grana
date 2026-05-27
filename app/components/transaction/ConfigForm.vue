@@ -53,11 +53,11 @@
             />
         </div>
         <div class="w-full">
-            <p class="text-lg font-semibold mb-2">Anotações</p>
+            <p class="text-lg font-semibold mb-2">Descrição</p>
 
             <Textarea
                 class="w-full"
-                placeholder="Observações"
+                placeholder="Ex: Aluguel, Luz, etc"
                 variant="outlined"
             />
         </div>
@@ -94,9 +94,8 @@ const typeOptions = ref([
     { label: 'Saída', value: 'expense' }
 ])
 const paymentOptions = [
-    { label: 'Pix', value: 'pix' },
-    { label: 'C. Crédito', value: 'credit' },
-    { label: 'C. Débito', value: 'debit' },
+    { label: 'Pix/Débito', value: 'pix' },
+    { label: 'Crédito', value: 'credit' },
     { label: 'Dinheiro', value: 'cash' }
 ]
 const categoriesOptions = computed(() => {

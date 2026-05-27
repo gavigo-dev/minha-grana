@@ -19,10 +19,26 @@
                 :disabled="categoryName.trim() === ''"
             />
         </div>
+
+        <div>
+            Veja algumas sugestões:
+
+            <p>Ganhos</p>
+            <div class="flex flex-wrap gap-2">
+                <Button
+                    v-for="(item, i) in incomeSugestions"
+                    :key="i"
+                    :label="item"
+                    variant="outlined"
+                />
+            </div>
+        </div>
     </Dialog>
 </template>
 
 <script setup lang="ts">
+import { useCategoriesStore } from '~/stores/categories'
+
 const emit = defineEmits(['update:visible', 'update:modelValue', 'submit'])
 
 const props = defineProps({
@@ -40,6 +56,8 @@ const props = defineProps({
     }
 })
 
+const categoriesStore = useCategoriesStore()
+
 const active = computed({
     get: () => props.visible,
     set: (value: boolean) => emit('update:visible', value)
@@ -50,4 +68,7 @@ const categoryName = computed({
 })
 
 const actionName = computed(() => (props.editing ? 'Editar' : 'Adicionar'))
+
+const incomeSugestions = computed(() => categoriesStore.sugestions.income)
+const expenseSugestions = computed(() => categoriesStore.sugestions.expense)
 </script>

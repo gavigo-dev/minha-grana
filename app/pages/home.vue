@@ -1,11 +1,19 @@
 <template>
     <div class="font-semibold">
-        <h1 class="text-xl">
-            Bem vindo(a) ao
-            <span class="text-primary text-2xl block md:inline md:text-xl">
-                Minha Grana
-            </span>
-        </h1>
+        <div class="flex justify-between items-center">
+            <h1 class="text-xl">
+                Bem vindo(a) ao
+                <span class="text-primary text-2xl block md:inline md:text-xl">
+                    Minha Grana
+                </span>
+            </h1>
+
+            <Button variant="text" @click="navigateTo('/profile')">
+                <OverlayBadge severity="danger">
+                    <Avatar icon="pi pi-user" size="xlarge" />
+                </OverlayBadge>
+            </Button>
+        </div>
         <p class="mt-13">
             <span class="text-4xl capitalize">{{ currentMonth }}</span>
             <span class="mt-1 block md:text-2xl md:inline md:ml-2">
@@ -72,10 +80,6 @@
                     />
                 </div>
             </div>
-        </div>
-
-        <div class="whitespace-pre">
-            {{ JSON.stringify(transactionStore.transactions, null, 2) }}
         </div>
     </div>
 </template>

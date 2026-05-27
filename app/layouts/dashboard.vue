@@ -40,12 +40,12 @@ const items = [
     {
         label: 'Histórico',
         icon: 'pi pi-file-check',
-        routeName: ''
+        routeName: '/history'
     },
     {
         label: 'Relatórios',
         icon: 'pi pi-chart-bar',
-        routeName: ''
+        routeName: '/report'
     },
     {
         label: 'Configurações',

@@ -9,7 +9,7 @@ export interface Transaction {
     amount: number
     date: string
     categoryId?: string
-    paymentMethod: 'pix' | 'credit card' | 'debit card' | 'cash'
+    paymentMethod: 'pix' | 'credit card' | 'cash'
     type: 'income' | 'expense'
 }
 

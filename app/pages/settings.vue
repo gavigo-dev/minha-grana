@@ -79,8 +79,6 @@ function addCategory() {
 
     categoriesStore.addCategory(categoryName.value)
     categoryName.value = ''
-
-    showConfigModal.value = false
 }
 function updateCategory() {
     if (categoryName.value.trim() === '') return
