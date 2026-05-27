@@ -9,8 +9,8 @@
             </h1>
 
             <Button variant="text" @click="navigateTo('/profile')">
-                <OverlayBadge severity="danger">
-                    <Avatar icon="pi pi-user" size="xlarge" />
+                <OverlayBadge severity="danger" size="small">
+                    <Avatar icon="pi pi-user" class="rounded-full" />
                 </OverlayBadge>
             </Button>
         </div>

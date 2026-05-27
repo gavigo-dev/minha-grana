@@ -1,23 +1,32 @@
 <template>
-    <div class="mt-12 flex items-start flex-wrap gap-4">
+    <div class="mt-12 md:mt-6 flex items-start flex-wrap gap-4 md:w-3/5">
         <div class="w-full">
-            <p class="text-lg font-semibold mb-2">Tipo de transação</p>
+            <p class="text-lg font-semibold mb-2">Nome</p>
 
-            <RadioButtonGroup v-model="form.type" :items="typeOptions">
-            </RadioButtonGroup>
+            <InputText class="w-full" placeholder="Ex: Aluguel, Luz, etc" />
         </div>
 
-        <div class="w-full md:w-[calc(50%-1rem)]">
-            <p class="text-lg font-semibold mb-2">Tipo de transação</p>
+        <div
+            class="w-full my-4 flex flex-col md:flex-row justify-between gap-4"
+        >
+            <div>
+                <p class="text-lg font-semibold mb-2">Tipo de transação</p>
 
-            <RadioButtonGroup
-                v-model="form.paymentMethod"
-                :items="paymentOptions"
-            >
-            </RadioButtonGroup>
+                <RadioButtonGroup v-model="form.type" :items="typeOptions">
+                </RadioButtonGroup>
+            </div>
+
+            <div>
+                <p class="text-lg font-semibold mb-2">Método de pagamento</p>
+
+                <RadioButtonGroup
+                    v-model="form.paymentMethod"
+                    :items="paymentOptions"
+                >
+                </RadioButtonGroup>
+            </div>
         </div>
-
-        <div class="w-full md:w-[calc(50%-1rem)]">
+        <div class="w-full">
             <p class="text-lg font-semibold mb-2">Categoria</p>
 
             <Select
@@ -26,46 +35,40 @@
                 optionLabel="name"
                 placeholder="Selecione uma categoria"
                 showClear
+                class="w-full"
             />
         </div>
 
-        <div class="w-full md:w-[calc(50%-1rem)]">
+        <div class="w-[calc(50%-0.5rem)]">
             <p class="text-lg font-semibold mb-2">Valor</p>
 
             <InputNumber
                 v-model="form.amount"
                 type="number"
                 class="w-full"
-                placeholder="R$ 0,00"
+                placeholder="R$ "
                 mode="currency"
                 currency="BRL"
                 locale="pt-BR"
+                showClear
             />
         </div>
-        <div class="w-full md:w-[calc(50%-1rem)]">
+        <div class="w-[calc(50%-0.5rem)]">
             <p class="text-lg font-semibold mb-2">Data</p>
 
             <DatePicker
+                v-model="date"
                 class="w-full"
                 placeholder="00/00/0000"
                 showClear
                 showIcon
             />
         </div>
-        <div class="w-full">
-            <p class="text-lg font-semibold mb-2">Descrição</p>
 
-            <Textarea
-                class="w-full"
-                placeholder="Ex: Aluguel, Luz, etc"
-                variant="outlined"
-            />
-        </div>
-
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center mt-4">
             <Button
-                class="w-full md:w-1/3"
-                label="salvar"
+                class="w-full"
+                label="Salvar"
                 :disabled="!formOk"
                 @click="submitForm"
             />
@@ -100,6 +103,15 @@ const paymentOptions = [
 ]
 const categoriesOptions = computed(() => {
     return categoriesStore.categories
+})
+
+const date = computed({
+    get() {
+        return form.value.date ? new Date(form.value.date) : null
+    },
+    set(value: Date | null) {
+        form.value.date = value ? value.toISOString() : ''
+    }
 })
 
 const formOk = computed(() => {

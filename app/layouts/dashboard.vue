@@ -14,13 +14,9 @@
         </div>
 
         <ConfirmDialog
-            pt:root:class="bg-gray-6 p-3 min-w-100"
+            pt:root:class="bg-gray-6 min-w-100"
             pt:mask:class="bg-gray-2/40"
-            pt:header:class="text-lg font-semibold flex items-center justify-between mb-3"
-            pt:pcCloseButton:root:class="bg-transparent cursor-pointer hover:text-primary"
-            pt:footer:class="flex gap-2 justify-end mt-4"
-            pt:pcRejectButton:root:class="bg-transparent cursor-pointer hover:text-primary w-20"
-            pt:pcAcceptButton:root:class="p-2 cursor-pointer flex items-center justify-center bg-primary text-sm text-gray-6 font-semibold uppercase rounded hover:bg-primary/80 w-20"
+            pt:pcRejectButton:root:class="bg-transparent text-primary hover:text-primary/80"
         />
         <!-- <ConfirmDialog /> -->
     </div>

@@ -3,6 +3,7 @@
         <div class="flex items-center justify-start font-semibold">
             <Button
                 icon="pi pi-arrow-left"
+                class="-ml-4 text-current"
                 variant="text"
                 @click="router.back()"
             />

@@ -1,6 +1,6 @@
 const emptyState: Partial<Transaction> = {
     description: '',
-    amount: 0,
+    amount: null,
     date: '',
     categoryId: '',
     type: 'income',

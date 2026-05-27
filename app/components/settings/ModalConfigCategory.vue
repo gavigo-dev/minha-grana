@@ -11,26 +11,46 @@
                 v-model="categoryName"
                 placeholder="Nome da categoria"
                 autofocus
+                show-clear
             />
 
             <Button
-                :label="actionName"
+                label="Salvar"
                 @click="emit('submit')"
                 :disabled="categoryName.trim() === ''"
             />
         </div>
 
-        <div>
-            Veja algumas sugestões:
+        <div class="mt-6">
+            <p>Veja algumas sugestões:</p>
+            <p class="font-semibold text-primary my-2">Ganhos</p>
 
-            <p>Ganhos</p>
-            <div class="flex flex-wrap gap-2">
-                <Button
-                    v-for="(item, i) in incomeSugestions"
-                    :key="i"
-                    :label="item"
-                    variant="outlined"
-                />
+            <div class="w-100 overflow-scroll">
+                <div class="w-fit flex gap-2">
+                    <Button
+                        v-for="(item, i) in incomeSugestions"
+                        :key="i"
+                        :label="item"
+                        class="w-fit text-sm text-nowrap"
+                        variant="outlined"
+                        @click="categoryName = item"
+                    />
+                </div>
+            </div>
+
+            <p class="font-semibold text-primary my-2">Despesas</p>
+
+            <div class="w-100 overflow-scroll">
+                <div class="w-fit flex gap-2">
+                    <Button
+                        v-for="(item, i) in expenseSugestions"
+                        :key="i"
+                        :label="item"
+                        class="w-fit text-sm text-nowrap"
+                        variant="outlined"
+                        @click="selectItem(item)"
+                    />
+                </div>
             </div>
         </div>
     </Dialog>
@@ -71,4 +91,8 @@ const actionName = computed(() => (props.editing ? 'Editar' : 'Adicionar'))
 
 const incomeSugestions = computed(() => categoriesStore.sugestions.income)
 const expenseSugestions = computed(() => categoriesStore.sugestions.expense)
+
+function selectItem(item: string) {
+    categoryName.value = item
+}
 </script>

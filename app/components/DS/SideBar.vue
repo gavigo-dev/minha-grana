@@ -24,7 +24,11 @@
             />
         </div>
 
-        <Menu :model="items" class="mt-12">
+        <Menu
+            :model="items"
+            class="mt-12 bg-transparent! border-none"
+            :pt="{ itemContent: 'bg-transparent!' }"
+        >
             <template #item="{ item }">
                 <a
                     @click="navigateTo(item.routeName)"

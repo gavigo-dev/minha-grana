@@ -6,7 +6,7 @@ export interface Category {
 export interface Transaction {
     id: string
     description?: string
-    amount: number
+    amount: number | null
     date: string
     categoryId?: string
     paymentMethod: 'pix' | 'credit card' | 'cash'

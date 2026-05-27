@@ -2,11 +2,12 @@
     <div>
         <div class="flex items-center justify-start font-semibold">
             <Button
+                class="-ml-4 text-current"
                 icon="pi pi-arrow-left"
                 variant="text"
                 @click="router.back()"
             />
-            <h1 class="text-2xl">Adicionar Transação</h1>
+            <h1 class="text-2xl ml-2">Adicionar Transação</h1>
         </div>
         <ConfigForm @submit="confirmCreate" />
     </div>
