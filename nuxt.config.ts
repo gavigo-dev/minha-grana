@@ -2,9 +2,21 @@ import tailwindcss from '@tailwindcss/vite'
 import Components from 'unplugin-vue-components/vite'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
+const env =
+    (
+        globalThis as {
+            process?: { env?: Record<string, string | undefined> }
+        }
+    ).process?.env || {}
+
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
+    runtimeConfig: {
+        public: {
+            apiUrl: env.API_URL || env.NUXT_PUBLIC_API_URL || ''
+        }
+    },
     modules: [
         '@vite-pwa/nuxt',
         '@primevue/nuxt-module',

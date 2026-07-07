@@ -13,9 +13,18 @@
 <script setup lang="ts">
 import { useTransactionsStore } from '~/stores/transactions'
 
+const api = useApi()
+
 definePageMeta({
     layout: 'dashboard'
 })
 
 const transactionStore = useTransactionsStore()
+
+async function getTransactions () {
+    const data = await api.request('/transaction', 'GET')
+    console.log(data)    
+}
+
+onMounted(() => getTransactions())
 </script>
