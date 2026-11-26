@@ -33,25 +33,25 @@ export default defineNuxtConfig({
         '~/assets/css/primeicons.css'
     ],
     pwa: {
-        registerType: 'autoUpdate',
-
         manifest: false,
-
-        workbox: {
-            navigateFallback: '/',
-            globPatterns: ['**/*.{js,css,html,png,svg,ico,json}']
-        },
-
         devOptions: {
+            suppressWarnings: true,
             enabled: true // allows testing PWA in dev
         }
     },
     vite: {
         plugins: [
-            tailwindcss(),
+            tailwindcss() as any,
             Components({
                 resolvers: [PrimeVueResolver()]
             })
         ]
+    },
+    devServer: {
+        host: '0.0.0.0',
+        https: {
+            key: './certs/key.pem',
+            cert: './certs/cert.pem'
+        }
     }
 })
