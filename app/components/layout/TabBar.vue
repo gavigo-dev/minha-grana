@@ -1,6 +1,6 @@
 <template>
     <div
-        class="h-15 fixed bottom-0 left-0 right-0 bg-gray-6 dark:bg-gray-1! flex items-center justify-around px-8 border-t-2 border-gray-5 dark:border-gray-2"
+        class="dark:bg-surface-800 h-15 fixed bottom-0 left-0 right-0 flex items-center justify-around px-8 border-t-2 border-gray-5 dark:border-gray-2"
     >
         <a
             v-ripple

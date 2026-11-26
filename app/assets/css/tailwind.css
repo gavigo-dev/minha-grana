@@ -1,24 +1,64 @@
 @import 'tailwindcss';
 @import 'tailwindcss-primeui';
 
+/* Dark mode baseado na classe .dark */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    /* Transparências */
     --color-op-lighten: rgba(255, 255, 255, 0.05);
     --color-op-darken: rgba(0, 0, 0, 0.05);
+
+    /* Brand */
     --color-primary: #d84265;
-    --color-secondary: #ffdeba;
+    --color-primary-50: #fcf0f3;
+    --color-primary-100: #f9e1e6;
+    --color-primary-200: #f3c3ce;
+    --color-primary-300: #eca0b2;
+    --color-primary-400: #e2718c;
+    --color-primary-500: #d84265;
+    --color-primary-600: #be3a59;
+    --color-primary-700: #a2324c;
+    --color-primary-800: #82283d;
+    --color-primary-900: #611e2d;
+    --color-primary-950: #451520;
+
+    /* Semantic colors */
+    --color-secondary: var(--p-secondary-color);
+    --color-info: var(--p-blue-500);
+    --color-success: var(--p-green-500);
+    --color-warning: var(--p-yellow-500);
+    --color-danger: var(--p-red-500);
     --color-accent: #f08108;
-    --color-light: #f2f2f2;
-    --color-dark: #4f4f4f;
-    --color-info: #8ec6e8;
-    --color-success: #82d59e;
-    --color-warning: #fff284;
-    --color-danger: #de5462;
-    --color-gray-1: #333333;
-    --color-gray-2: #4f4f4f;
-    --color-gray-3: #828282;
-    --color-gray-4: #bdbdbd;
-    --color-gray-5: #e0e0e0;
-    --color-gray-6: #f2f2f2;
+
+    /* Surfaces */
+    --color-surface-0: var(--p-surface-0);
+    --color-surface-50: var(--p-surface-50);
+    --color-surface-100: var(--p-surface-100);
+    --color-surface-200: var(--p-surface-200);
+    --color-surface-300: var(--p-surface-300);
+    --color-surface-400: var(--p-surface-400);
+    --color-surface-500: var(--p-surface-500);
+    --color-surface-600: var(--p-surface-600);
+    --color-surface-700: var(--p-surface-700);
+    --color-surface-800: var(--p-surface-800);
+    --color-surface-900: var(--p-surface-900);
+    --color-surface-950: var(--p-surface-950);
+
+    /* Text */
+    --color-text: var(--p-text-color);
+    --color-text-muted: var(--p-text-muted-color);
+    --color-text-hover: var(--p-text-hover-color);
+
+    /* Backgrounds */
+    --color-light: var(--p-surface-50);
+    --color-dark: var(--p-surface-950);
+
+    /* Legacy gray scale */
+    --color-gray-1: var(--p-surface-900);
+    --color-gray-2: var(--p-surface-700);
+    --color-gray-3: var(--p-surface-500);
+    --color-gray-4: var(--p-surface-400);
+    --color-gray-5: var(--p-surface-200);
+    --color-gray-6: var(--p-surface-100);
 }

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-gray-6 dark:bg-zinc-800 h-screen px-6 py-8 relative flex flex-col transition-width duration-300 z-50"
+        class="h-screen bg-surface-200 dark:bg-surface-800 px-6 py-8 relative flex flex-col transition-width duration-300 z-50"
         :class="expanded ? 'w-60' : 'w-25'"
     >
         <div class="h-8">
@@ -42,8 +42,15 @@
         </div>
 
         <div class="overflow-hidden mt-18 h-100">
-            <Menu :model="items" :pt="{ root: 'bg-transparent border-0' }">
-                <template #item="{ item }">
+            <Menu
+                :model="items"
+                :pt="{
+                    root: 'bg-transparent border-0',
+                    itemContent:
+                        'hover:bg-op-darken dark:hover:bg-op-lighten hover:cursor-pointer'
+                }"
+            >
+                <template #item="{ item }" class="">
                     <a
                         v-ripple
                         @click="navigateTo(item.routeName)"
@@ -52,7 +59,7 @@
                             item.routeName === route.name &&
                                 'text-primary font-semibold'
                         ]"
-                        class="h-10 flex items-center my-2 gap-4 px-4 py-2! rounded text-gray-1 dark:text-gray-4 hover:bg-op-darken dark:hover:bg-op-lighten hover:cursor-pointer"
+                        class="h-10 flex items-center my-2 gap-4 px-4 py-2! rounded text-gray-1 dark:text-gray-4"
                     >
                         <i :class="item.icon" style="font-size: 1.2rem" />
 

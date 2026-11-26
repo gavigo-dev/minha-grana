@@ -6,7 +6,8 @@ body {
 }
 
 .dark body {
-    color: #fafafa;
+    background-color: var(--p-surface-900);
+    color: var(--p-text-color);
 }
 
 a:hover {

@@ -10,7 +10,6 @@
             <Avatar
                 :image="imageSrc"
                 :label="label"
-                size="large"
                 class="bg-primary-100 text-primary"
                 shape="circle"
             />

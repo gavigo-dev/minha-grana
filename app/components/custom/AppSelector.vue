@@ -7,7 +7,9 @@
             :class="[currentAppConfig.iconClass, currentAppConfig.cardClass]"
             @click="visible = true"
         />
-        <p>{{ currentAppConfig.label }}</p>
+        <p class="text-sm sm:text-base">
+            {{ currentAppConfig.label }}
+        </p>
 
         <Dialog
             v-model:visible="visible"
@@ -65,7 +67,7 @@ const apps = [
         description: 'Organize suas contas e tire seus planos do papel.',
         icon: 'pi pi-wallet',
         iconClass: 'bg-primary-200! text-primary-500!',
-        cardClass: 'border-primary-200 border bg-primary-50',
+        cardClass: 'border-primary-200 border bg-primary-500/5',
         value: 'planner',
         color: 'primary',
         routePath: '/planner/home'
@@ -75,7 +77,7 @@ const apps = [
         description: 'Planeje sua lista e compre o que faz sentido para você.',
         icon: 'pi pi-shopping-cart',
         iconClass: 'bg-amber-200! text-amber-500!',
-        cardClass: 'border-amber-200 border bg-amber-50',
+        cardClass: 'border-amber-200 border bg-amber-500/5',
         value: 'shopping',
         color: 'amber',
         routePath: '/planner/logs'
@@ -85,7 +87,7 @@ const apps = [
         description: 'Faça as contas do dia a dia e decida com mais clareza.',
         icon: 'pi pi-calculator',
         iconClass: 'bg-indigo-200! text-indigo-500!',
-        cardClass: 'border-indigo-200 border bg-indigo-50',
+        cardClass: 'border-indigo-200 border bg-indigo-500/5',
         value: 'calculator',
         color: 'indigo',
         routePath: '/planner/reports'

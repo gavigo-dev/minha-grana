@@ -1,11 +1,10 @@
+import MyTheme from './app/assets/_prime/theme.js'
 import tailwindcss from '@tailwindcss/vite'
-import Components from 'unplugin-vue-components/vite'
-import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@vite-pwa/nuxt'],
+    modules: ['@vite-pwa/nuxt', '@primevue/nuxt-module'],
     app: {
         head: {
             charset: 'utf-8',
@@ -32,20 +31,36 @@ export default defineNuxtConfig({
         '~/assets/css/tailwind.css',
         '~/assets/css/primeicons.css'
     ],
+    primevue: {
+        autoImport: true,
+
+        options: {
+            ripple: true,
+
+            theme: {
+                preset: MyTheme,
+                options: {
+                    darkModeSelector: '.dark',
+                    cssLayer: {
+                        name: 'primevue',
+                        order: 'theme, base, primevue'
+                    }
+                }
+            }
+        },
+
+        directives: {
+            include: ['Ripple']
+        }
+    },
     pwa: {
         manifest: false,
         devOptions: {
-            suppressWarnings: true,
             enabled: true // allows testing PWA in dev
         }
     },
     vite: {
-        plugins: [
-            tailwindcss() as any,
-            Components({
-                resolvers: [PrimeVueResolver()]
-            })
-        ]
+        plugins: [tailwindcss() as any]
     },
     devServer: {
         host: '0.0.0.0',
