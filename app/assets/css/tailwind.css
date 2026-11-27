@@ -10,26 +10,17 @@
     --color-op-darken: rgba(0, 0, 0, 0.05);
 
     /* Brand */
-    --color-primary: #d84265;
-    --color-primary-50: #fcf0f3;
-    --color-primary-100: #f9e1e6;
-    --color-primary-200: #f3c3ce;
-    --color-primary-300: #eca0b2;
-    --color-primary-400: #e2718c;
-    --color-primary-500: #d84265;
-    --color-primary-600: #be3a59;
-    --color-primary-700: #a2324c;
-    --color-primary-800: #82283d;
-    --color-primary-900: #611e2d;
-    --color-primary-950: #451520;
-
-    /* Semantic colors */
-    --color-secondary: var(--p-secondary-color);
-    --color-info: var(--p-blue-500);
-    --color-success: var(--p-green-500);
-    --color-warning: var(--p-yellow-500);
-    --color-danger: var(--p-red-500);
-    --color-accent: #f08108;
+    --color-primary-50: var(--p-brand-50);
+    --color-primary-100: var(--p-brand-100);
+    --color-primary-200: var(--p-brand-200);
+    --color-primary-300: var(--p-brand-300);
+    --color-primary-400: var(--p-brand-400);
+    --color-primary-500: var(--p-brand-500);
+    --color-primary-600: var(--p-brand-600);
+    --color-primary-700: var(--p-brand-700);
+    --color-primary-800: var(--p-brand-800);
+    --color-primary-900: var(--p-brand-900);
+    --color-primary-950: var(--p-brand-950);
 
     /* Surfaces */
     --color-surface-0: var(--p-surface-0);
@@ -61,4 +52,11 @@
     --color-gray-4: var(--p-surface-400);
     --color-gray-5: var(--p-surface-200);
     --color-gray-6: var(--p-surface-100);
+}
+
+:root {
+    --color-primary: var(--p-brand-500);
+}
+.dark {
+    --color-primary: var(--p-brand-400);
 }

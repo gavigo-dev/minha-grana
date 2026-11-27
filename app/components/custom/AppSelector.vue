@@ -7,7 +7,10 @@
             :class="[currentAppConfig.iconClass, currentAppConfig.cardClass]"
             @click="visible = true"
         />
-        <p class="text-sm sm:text-base">
+        <p
+            class="text-sm sm:text-base hover:cursor-pointer"
+            @click="visible = true"
+        >
             {{ currentAppConfig.label }}
         </p>
 
@@ -26,7 +29,7 @@
                     v-ripple
                     v-for="app in apps"
                     :key="app.value"
-                    @click="selectApp(app.value)"
+                    @click="selectApp(app.routePath)"
                 >
                     <Card
                         class="text-left w-full"
@@ -70,7 +73,8 @@ const apps = [
         cardClass: 'border-primary-200 border bg-primary-500/5',
         value: 'planner',
         color: 'primary',
-        routePath: '/planner/home'
+        routePath: '/planner/home',
+        routeMatch: '/planner'
     },
     {
         label: 'Assistente de compras',
@@ -80,7 +84,8 @@ const apps = [
         cardClass: 'border-amber-200 border bg-amber-500/5',
         value: 'shopping',
         color: 'amber',
-        routePath: '/planner/logs'
+        routePath: '/shopping',
+        routeMatch: '/shopping'
     },
     {
         label: 'Calculadora',
@@ -90,21 +95,34 @@ const apps = [
         cardClass: 'border-indigo-200 border bg-indigo-500/5',
         value: 'calculator',
         color: 'indigo',
-        routePath: '/planner/reports'
+        routePath: '/calculator',
+        routeMatch: '/calculator'
     }
 ]
 
+const route = useRoute()
 const visible = ref(false)
 
-const currentApp = ref('planner')
+const currentApp = ref('')
 
-const currentAppConfig = computed(() =>
-    apps.find((app) => app.value === currentApp.value)
+onMounted(() => {
+    setCurrent()
+})
+
+const currentAppConfig = computed(
+    () => apps.find((app) => app.value === currentApp.value) || {}
 )
 
-const selectApp = (app) => {
-    currentApp.value = app
+const setCurrent = (path) => {
+    const pathToMatch = path || route.path
+    currentApp.value = apps.find((app) =>
+        pathToMatch.startsWith(app.routeMatch)
+    )?.value
+}
+
+const selectApp = (path) => {
     visible.value = false
-    navigateTo(currentAppConfig.value.routePath)
+    navigateTo(path)
+    setCurrent(path)
 }
 </script>

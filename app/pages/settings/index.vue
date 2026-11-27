@@ -34,6 +34,6 @@ import ThemeModeSelector from '~/components/custom/ThemeModeSelector.vue'
 import BackBtn from '~/components/layout/BackBtn.vue'
 
 definePageMeta({
-    layout: 'default'
+    layout: 'small'
 })
 </script>

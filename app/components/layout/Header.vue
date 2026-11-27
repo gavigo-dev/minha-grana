@@ -10,7 +10,7 @@
                 variant="text"
                 severity="contrast"
                 size="small"
-                icon="pi pi-ellipsis-v"
+                icon="pi pi-bars"
                 @click="navigateTo('/settings')"
             />
         </div>

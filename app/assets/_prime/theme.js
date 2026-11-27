@@ -3,7 +3,7 @@ import Aura from '@primeuix/themes/aura'
 
 const MyTheme = definePreset(Aura, {
     primitive: {
-        primary: {
+        brand: {
             50: '#FCF0F3',
             100: '#F9E1E6',
             200: '#F3C3CE',
@@ -20,21 +20,22 @@ const MyTheme = definePreset(Aura, {
 
     semantic: {
         primary: {
-            50: '{primary.50}',
-            100: '{primary.100}',
-            200: '{primary.200}',
-            300: '{primary.300}',
-            400: '{primary.400}',
-            500: '{primary.500}',
-            600: '{primary.600}',
-            700: '{primary.700}',
-            800: '{primary.800}',
-            900: '{primary.900}',
-            950: '{primary.950}',
-            color: '{primary.500}',
-            inverseColor: '#ffffff',
-            hoverColor: '{primary.600}',
-            activeColor: '{primary.700}'
+            50: '{brand.50}',
+            100: '{brand.100}',
+            200: '{brand.200}',
+            300: '{brand.300}',
+            400: '{brand.400}',
+            500: '{brand.500}',
+            600: '{brand.600}',
+            700: '{brand.700}',
+            800: '{brand.800}',
+            900: '{brand.900}',
+            950: '{brand.950}',
+            color: '{brand.500}',
+            inverseColor: '{surface.50}',
+            hoverColor: '{brand.600}',
+            activeColor: '{brand.700}',
+            contrastColor: '{surface.50}'
         },
 
         colorScheme: {
@@ -54,7 +55,6 @@ const MyTheme = definePreset(Aura, {
                     950: '#1B181A'
                 }
             },
-
             dark: {
                 surface: {
                     0: '#ffffff',

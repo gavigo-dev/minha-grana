@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@vite-pwa/nuxt', '@primevue/nuxt-module'],
+    modules: ['@primevue/nuxt-module'],
     app: {
         head: {
             charset: 'utf-8',
@@ -23,11 +23,24 @@ export default defineNuxtConfig({
                     rel: 'manifest',
                     href: '/manifest.webmanifest'
                 }
+            ],
+            meta: [
+                {
+                    name: 'theme-color',
+                    content: '#ffffff',
+                    media: '(prefers-color-scheme: light)'
+                },
+                {
+                    name: 'theme-color',
+                    content: '#121212',
+                    media: '(prefers-color-scheme: dark)'
+                }
             ]
         }
     },
     css: [
         '~/assets/css/main.scss',
+        '~/assets/css/ds.scss',
         '~/assets/css/tailwind.css',
         '~/assets/css/primeicons.css'
     ],
@@ -51,12 +64,6 @@ export default defineNuxtConfig({
 
         directives: {
             include: ['Ripple']
-        }
-    },
-    pwa: {
-        manifest: false,
-        devOptions: {
-            enabled: true // allows testing PWA in dev
         }
     },
     vite: {

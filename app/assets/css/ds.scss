@@ -1,0 +1,76 @@
+$primecolors: (
+    'emerald',
+    'green',
+    'lime',
+    'red',
+    'orange',
+    'amber',
+    'yellow',
+    'teal',
+    'cyan',
+    'sky',
+    'blue',
+    'indigo',
+    'violet',
+    'purple',
+    'fuchsia',
+    'pink',
+    'rose',
+    'slate',
+    'gray',
+    'zinc',
+    'neutral',
+    'stone',
+    'primary'
+);
+
+@each $color in $primecolors {
+    .panel-#{$color} {
+        background-color: color-mix(
+            in srgb,
+            var(--p-#{$color}-300) 20%,
+            transparent
+        );
+        color: var(--p-#{$color}-500);
+    }
+
+    .dark .panel-#{$color} {
+        background-color: color-mix(
+            in srgb,
+            var(--p-#{$color}-500) 20%,
+            transparent
+        );
+        color: var(--p-#{$color}-400);
+    }
+}
+
+$tailcolors: ('secondary', 'info', 'success', 'warning', 'danger', 'accent');
+
+@each $color in $tailcolors {
+    .panel-#{$color} {
+        background-color: color-mix(
+            in srgb,
+            var(--color-#{$color}) 20%,
+            transparent
+        );
+        color: var(--color-#{$color});
+    }
+}
+
+// prime override
+.dark {
+    --p-button-primary-background: var(--p-brand-500) !important;
+    --p-button-primary-border-color: var(--p-brand-500) !important;
+    --p-button-primary-color: var(--p-surface-50) !important;
+}
+
+// tail
+:root {
+    /* Semantic colors */
+    --color-secondary: var(--p-secondary-color);
+    --color-info: var(--p-blue-500);
+    --color-success: var(--p-green-500);
+    --color-warning: var(--p-yellow-500);
+    --color-danger: var(--p-red-500);
+    --color-accent: #f08108;
+}

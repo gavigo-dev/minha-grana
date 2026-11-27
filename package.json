@@ -10,12 +10,13 @@
         "postinstall": "nuxt prepare"
     },
     "dependencies": {
-        "@primeuix/themes": "^3.1.1",
+        "@primeuix/themes": "2.0.3",
+        "@primevue/forms": "4.5.5",
         "@tailwindcss/vite": "^4.1.18",
         "nuxt": "^4.2.2",
         "pinia": "^3.0.4",
         "primeicons": "^7.0.0",
-        "primevue": "^4.5.5",
+        "primevue": "4.5.5",
         "tailwind-merge": "^3.4.0",
         "tailwindcss-primeui": "^0.6.1",
         "vue": "^3.5.25",
@@ -35,5 +36,5 @@
         "sass": "^1.96.0",
         "tailwindcss": "^4.1.18"
     },
-    "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501"
+    "packageManager": "pnpm@12.23.0"
 }

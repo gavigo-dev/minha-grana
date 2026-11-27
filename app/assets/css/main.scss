@@ -1,15 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+html {
+    max-height: var(--app-height) !important;
+    width: 100%;
+    overflow: hidden;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #333333;
+    background-color: var(--p-surface-100);
+    max-height: var(--app-height) !important;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .dark body {
-    background-color: var(--p-surface-900);
-    color: var(--p-text-color);
+    background-color: var(--p-surface-950);
 }
 
 a:hover {
     cursor: pointer;
+}
+
+:root {
+    --app-height: calc(100vh - 0.5rem);
 }
