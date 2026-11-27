@@ -1,24 +1,62 @@
 @import 'tailwindcss';
 @import 'tailwindcss-primeui';
 
+/* Dark mode baseado na classe .dark */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    /* Transparências */
     --color-op-lighten: rgba(255, 255, 255, 0.05);
     --color-op-darken: rgba(0, 0, 0, 0.05);
-    --color-primary: #d84265;
-    --color-secondary: #ffdeba;
-    --color-accent: #f08108;
-    --color-light: #f2f2f2;
-    --color-dark: #4f4f4f;
-    --color-info: #8ec6e8;
-    --color-success: #82d59e;
-    --color-warning: #fff284;
-    --color-danger: #de5462;
-    --color-gray-1: #333333;
-    --color-gray-2: #4f4f4f;
-    --color-gray-3: #828282;
-    --color-gray-4: #bdbdbd;
-    --color-gray-5: #e0e0e0;
-    --color-gray-6: #f2f2f2;
+
+    /* Brand */
+    --color-primary-50: var(--p-brand-50);
+    --color-primary-100: var(--p-brand-100);
+    --color-primary-200: var(--p-brand-200);
+    --color-primary-300: var(--p-brand-300);
+    --color-primary-400: var(--p-brand-400);
+    --color-primary-500: var(--p-brand-500);
+    --color-primary-600: var(--p-brand-600);
+    --color-primary-700: var(--p-brand-700);
+    --color-primary-800: var(--p-brand-800);
+    --color-primary-900: var(--p-brand-900);
+    --color-primary-950: var(--p-brand-950);
+
+    /* Surfaces */
+    --color-surface-0: var(--p-surface-0);
+    --color-surface-50: var(--p-surface-50);
+    --color-surface-100: var(--p-surface-100);
+    --color-surface-200: var(--p-surface-200);
+    --color-surface-300: var(--p-surface-300);
+    --color-surface-400: var(--p-surface-400);
+    --color-surface-500: var(--p-surface-500);
+    --color-surface-600: var(--p-surface-600);
+    --color-surface-700: var(--p-surface-700);
+    --color-surface-800: var(--p-surface-800);
+    --color-surface-900: var(--p-surface-900);
+    --color-surface-950: var(--p-surface-950);
+
+    /* Text */
+    --color-text: var(--p-text-color);
+    --color-text-muted: var(--p-text-muted-color);
+    --color-text-hover: var(--p-text-hover-color);
+
+    /* Backgrounds */
+    --color-light: var(--p-surface-50);
+    --color-dark: var(--p-surface-950);
+
+    /* Legacy gray scale */
+    --color-gray-1: var(--p-surface-900);
+    --color-gray-2: var(--p-surface-700);
+    --color-gray-3: var(--p-surface-500);
+    --color-gray-4: var(--p-surface-400);
+    --color-gray-5: var(--p-surface-200);
+    --color-gray-6: var(--p-surface-100);
+}
+
+:root {
+    --color-primary: var(--p-brand-500);
+}
+.dark {
+    --color-primary: var(--p-brand-400);
 }

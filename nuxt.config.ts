@@ -1,11 +1,10 @@
+import MyTheme from './app/assets/_prime/theme.js'
 import tailwindcss from '@tailwindcss/vite'
-import Components from 'unplugin-vue-components/vite'
-import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@vite-pwa/nuxt'],
+    modules: ['@primevue/nuxt-module'],
     app: {
         head: {
             charset: 'utf-8',
@@ -24,34 +23,57 @@ export default defineNuxtConfig({
                     rel: 'manifest',
                     href: '/manifest.webmanifest'
                 }
+            ],
+            meta: [
+                {
+                    name: 'theme-color',
+                    content: '#ffffff',
+                    media: '(prefers-color-scheme: light)'
+                },
+                {
+                    name: 'theme-color',
+                    content: '#121212',
+                    media: '(prefers-color-scheme: dark)'
+                }
             ]
         }
     },
     css: [
         '~/assets/css/main.scss',
+        '~/assets/css/ds.scss',
         '~/assets/css/tailwind.css',
         '~/assets/css/primeicons.css'
     ],
-    pwa: {
-        registerType: 'autoUpdate',
+    primevue: {
+        autoImport: true,
 
-        manifest: false,
+        options: {
+            ripple: true,
 
-        workbox: {
-            navigateFallback: '/',
-            globPatterns: ['**/*.{js,css,html,png,svg,ico,json}']
+            theme: {
+                preset: MyTheme,
+                options: {
+                    darkModeSelector: '.dark',
+                    cssLayer: {
+                        name: 'primevue',
+                        order: 'theme, base, primevue'
+                    }
+                }
+            }
         },
 
-        devOptions: {
-            enabled: true // allows testing PWA in dev
+        directives: {
+            include: ['Ripple']
         }
     },
     vite: {
-        plugins: [
-            tailwindcss(),
-            Components({
-                resolvers: [PrimeVueResolver()]
-            })
-        ]
+        plugins: [tailwindcss() as any]
+    },
+    devServer: {
+        host: '0.0.0.0',
+        https: {
+            key: './certs/key.pem',
+            cert: './certs/cert.pem'
+        }
     }
 })
